@@ -2,16 +2,11 @@ import sys
 import pytesseract
 from pdf2image import convert_from_path
 
-TESSERACT_PATH = r"D:\ocr\tesseract.exe"
-POPPLER_PATH = r"D:\poppler\poppler-26.02.0\Library\bin"
-
-pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
 
 def ocr_pdf(pdf_path):
     pages = convert_from_path(
         pdf_path,
-        dpi=400,
-        poppler_path=POPPLER_PATH
+        dpi=300
     )
 
     full_text = ""
@@ -22,7 +17,9 @@ def ocr_pdf(pdf_path):
 
     return full_text
 
+
 if __name__ == "__main__":
     pdf_path = sys.argv[1]
     result = ocr_pdf(pdf_path)
     print(result)
+    
