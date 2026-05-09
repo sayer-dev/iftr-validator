@@ -810,7 +810,7 @@ async function sendPDFFileToBackendForOCR(file) {
   const formData = new FormData();
   formData.append("pdfFile", file);
 
-  const response = await fetch("http://localhost:3000/ocr-pdf", {
+  const response = await fetch("https://iftr-validator.onrender.com/ocr-pdf", {
     method: "POST",
     body: formData
   });
@@ -823,4 +823,5 @@ async function sendPDFFileToBackendForOCR(file) {
 
   return data;
 }
+
 
