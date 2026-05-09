@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IFTR PDF Upload Validator</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e5e7eb;
+      margin: 0;
+      padding: 24px;
+      color: #111;
+    }
+
+    .box {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    button {
+      background: #111827;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .rejected {
+      background: #fef2f2;
+      border: 2px solid #ef4444;
+      color: #991b1b;
+    }
+
+    .warning {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      color: #92400e;
+    }
+
+    .approved {
+      background: #ecfdf5;
+      border: 2px solid #10b981;
+      color: #065f46;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      background: #f3f4f6;
+      padding: 15px;
+      border-radius: 8px;
+      max-height: 350px;
+      overflow: auto;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1>Upload & Validate IFTR PDF</h1>
+
+  <input type="file" id="pdfFile" accept="application/pdf">
+
+<button onclick="readAndValidatePDF()">Upload & Validate PDF</button>
+  
+
+  <div id="resultBox" class="result">
+    <h2 id="statusText"></h2>
+    <div id="feedbackText"></div>
+  </div>
+
+  <h3>Extracted PDF Text</h3>
+  <pre id="extractedText">No PDF uploaded yet.</pre>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@6/dist/tesseract.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
